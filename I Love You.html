@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Love You Heart Animation</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000;
+            overflow: hidden;
+        }
+        
+        .heart {
+            position: relative;
+            width: 300px;
+            height: 270px;
+            animation: pulse 2s infinite ease-in-out;
+        }
+        
+        .heart:before, .heart:after {
+            position: absolute;
+            content: "";
+            left: 150px;
+            top: 0;
+            width: 150px;
+            height: 240px;
+            background: #ff0000;
+            border-radius: 150px 150px 0 0;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+        }
+        
+        .heart:after {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+        
+        .text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #000;
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            z-index: 10;
+            width: 100%;
+        }
+        
+        .white-heart {
+            position: absolute;
+            width: 280px;
+            height: 250px;
+            animation: pulse 2s infinite ease-in-out;
+            animation-delay: 0.1s;
+        }
+        
+        .white-heart:before, .white-heart:after {
+            position: absolute;
+            content: "";
+            left: 140px;
+            top: 10px;
+            width: 130px;
+            height: 220px;
+            background: #ffffff;
+            border-radius: 130px 130px 0 0;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+        }
+        
+        .white-heart:after {
+            left: 10px;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="heart"></div>
+    <div class="white-heart"></div>
+    <div class="text">I LOVE YOU</div>
+
+    <script>
+        // Optional: Add some interactivity
+        document.addEventListener('DOMContentLoaded', function() {
+            const textElement = document.querySelector('.text');
+            const messages = ["I LOVE YOU", "SO MUCH", "FOREVER", "❤️"];
+            let currentIndex = 0;
+            
+            // Change text every 3 seconds
+            setInterval(() => {
+                currentIndex = (currentIndex + 1) % messages.length;
+                textElement.textContent = messages[currentIndex];
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
